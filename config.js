@@ -1,6 +1,5 @@
 // Public contact settings only. Never put credentials or API tokens here.
-// Set the confirmed work account without @. An empty value shows a notice,
-// and does not create a Telegram link or a contact form.
+// Set the confirmed work account without @. An empty/invalid value hides links.
 window.PORTFOLIO_CONFIG = Object.freeze({
-  telegramUsername: ''
+  telegramUsername: 'nikita_automates'
 });

@@ -33,11 +33,17 @@
     const t = translations[language];
     const username = (window.PORTFOLIO_CONFIG?.telegramUsername || '').trim().replace(/^@/, '');
     const valid = /^[a-z][a-z0-9_]{4,31}$/i.test(username);
-    const link = document.querySelector('#telegram-link');
-    document.querySelector('#contact-status').textContent = valid ? t.contactReady : t.contactPending;
-    link.hidden = !valid;
-    if (valid) { link.href = `https://t.me/${username}`; link.textContent = `${t.telegramAction} ↗`; }
-    else { link.removeAttribute('href'); link.textContent = ''; }
+    document.querySelectorAll('[data-telegram-link]').forEach(link => {
+      link.hidden = !valid;
+      if (valid) {
+        link.href = `https://t.me/${username}`;
+        link.textContent = link.dataset.telegramLink === 'username' ? `@${username}` : t.telegramAction;
+      } else {
+        link.removeAttribute('href');
+        link.textContent = '';
+      }
+    });
+    document.querySelector('#contact-status').hidden = !valid;
   }
   function setLanguage(next, persist = false) {
     language = next === 'ru' ? 'ru' : 'en';

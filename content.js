@@ -22,7 +22,7 @@ window.PORTFOLIO_CONTENT = {
     process3Title: 'Build & review', process3Text: 'Show a working version on test data and check normal and error cases together.',
     process4Title: 'Hand over', process4Text: 'Provide the agreed code, setup instructions and a walkthrough of the result.',
     contactTitle: 'Have a workflow in mind?', contactIntro: 'A short description, a sample input and the result you expect are a useful starting point.',
-    contactChannel: 'Work Telegram', contactPending: 'Contact details will be added here soon. This page does not accept requests yet.', contactReady: 'Tell me what you would like to automate.', telegramAction: 'Message on Telegram',
+    contactChannel: 'Work Telegram', contactReady: 'Tell me what you would like to automate.', telegramAction: 'Message me on Telegram',
     footerText: 'Bots. Data. Less repetitive work.', backTop: 'Back to top ↑'
   },
   ru: {
@@ -48,7 +48,7 @@ window.PORTFOLIO_CONTENT = {
     process3Title: 'Собрать и проверить', process3Text: 'Покажу рабочую версию на тестовых данных. Вместе проверим обычные сценарии и ошибки.',
     process4Title: 'Передать решение', process4Text: 'Передам согласованный код, инструкцию по запуску и объясню, как пользоваться результатом.',
     contactTitle: 'Есть задача для автоматизации?', contactIntro: 'Для начала пригодятся короткое описание, пример входных данных и ожидаемый результат.',
-    contactChannel: 'Рабочий Telegram', contactPending: 'Контакт скоро появится здесь. Пока эта страница не принимает заявки.', contactReady: 'Расскажите, что хотели бы автоматизировать.', telegramAction: 'Написать в Telegram',
+    contactChannel: 'Рабочий Telegram', contactReady: 'Расскажите, что хотели бы автоматизировать.', telegramAction: 'Написать в Telegram',
     footerText: 'Боты. Данные. Меньше рутины.', backTop: 'Наверх ↑'
   }
 };
