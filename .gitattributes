@@ -1,0 +1,6 @@
+# Keep genuine demo documents byte-for-byte on Windows as well as GitHub Pages.
+*.pdf binary
+*.png binary
+*.xlsx binary
+# This archived output intentionally retains its original trailing blank lines.
+assets/keil-build-report.txt -text -whitespace

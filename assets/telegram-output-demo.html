@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Execution report of the Telegram lead bot on fictional data. No Telegram messages were sent.">
+  <title>Telegram lead bot — execution report</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #0e121b; color: #e6edf7; font: 16px/1.65 system-ui, sans-serif; }
+    .page { width: min(100% - 3rem, 1152px); margin-inline: auto; padding-block: 2rem 3rem; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; }
+    a { color: #75e5ce; text-underline-offset: 4px; }
+    a:hover { color: #c0f8ec; }
+    :focus-visible { outline: 3px solid #75e5ce; outline-offset: 4px; }
+    .back { display: inline-flex; align-items: center; min-height: 44px; font-size: 0.9rem; }
+    .languages { display: flex; gap: 4px; padding: 3px; border: 1px solid #3d4b61; border-radius: 8px; }
+    .languages button { min-width: 44px; min-height: 40px; border: 0; border-radius: 4px; padding: 0.3rem 0.55rem; background: transparent; color: #c4d2e8; font: 600 0.8rem system-ui, sans-serif; cursor: pointer; }
+    .languages button[aria-pressed="true"] { background: #29453f; color: #c9ffee; }
+    [hidden] { display: none !important; }
+    .label { color: #67dfc6; font-size: 0.72rem; letter-spacing: 0.12em; font-weight: 700; }
+    h1 { font-size: clamp(1.85rem, 4.3vw, 2.7rem); line-height: 1.2; letter-spacing: -0.035em; margin: 0.8rem 0; text-wrap: balance; }
+    .intro { color: #b6c4d8; max-width: 970px; }
+    .grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 2rem; margin-top: 1.75rem; }
+    .grid > section { min-width: 0; }
+    h2 { font-size: 1.1rem; line-height: 1.4; margin: 0 0 1rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; table-layout: fixed; }
+    th, td { text-align: left; vertical-align: top; border-bottom: 1px solid #2a374b; padding: 0.75rem 0.5rem; overflow-wrap: anywhere; }
+    th { color: #b6c4d8; width: 28%; font-weight: 600; }
+    pre { white-space: pre-wrap; overflow-wrap: anywhere; margin: 0; background: #172130; border: 1px solid #2a374b; border-radius: 12px; padding: 1.25rem; font: 0.81rem/1.7 ui-monospace, Consolas, monospace; }
+    .status { padding: 1rem 1.25rem; border: 1px solid #317c6b; background: #15342c; border-radius: 10px; color: #a0f2dc; margin-top: 1.75rem; }
+    footer { font-size: 0.8rem; color: #aebbd0; margin-top: 1.5rem; }
+    footer p { margin: 0.5rem 0; }
+    footer a { display: inline-block; min-height: 44px; padding-block: 0.65rem; }
+    @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } .topbar { margin-bottom: 1.75rem; } }
+    @media (max-width: 440px) { .page { width: calc(100% - 2rem); padding-top: 1rem; } th { width: 30%; } th, td { padding-inline: 0.3rem; } pre { padding: 1rem; } .status { padding: 1rem; } }
+    @media (forced-colors: active) { .languages button[aria-pressed="true"] { border: 1px solid ButtonText; } }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a class="back" href="../index.html#project-telegram-leads" data-i18n="back">← Back to the project</a>
+      <div class="languages" role="group" aria-label="Language" data-i18n-aria="language" hidden><button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="true">EN</button><button type="button" data-lang="ru" lang="ru" aria-label="Русский" aria-pressed="false">RU</button></div>
+    </header>
+    <main>
+      <p class="label" data-i18n="label">DEMO PROJECT / ACTUAL BACKEND EXECUTION</p>
+      <h1 data-i18n="heading">Telegram lead bot → execution report</h1>
+      <p class="intro" data-i18n="intro">Fictional data passed through the original Python lead service and SQLite repository. This local execution sent no Telegram messages.</p>
+      <div class="grid">
+        <section aria-labelledby="request-heading">
+          <h2 id="request-heading" data-i18n="requestHeading">Saved fictional request</h2>
+          <table><tbody>
+            <tr><th scope="row" data-i18n="name">Name</th><td lang="en">Alex Demo</td></tr>
+            <tr><th scope="row" data-i18n="contact">Contact</th><td>lead@example.invalid</td></tr>
+            <tr><th scope="row" data-i18n="service">Service</th><td lang="en">Telegram bot</td></tr>
+            <tr><th scope="row" data-i18n="message">Message</th><td lang="en">Create a small lead collection bot for a local portfolio simulator.</td></tr>
+            <tr><th scope="row" data-i18n="statusLabel">Status</th><td lang="en">new</td></tr>
+            <tr><th scope="row" data-i18n="publicId">Public ID</th><td>LEAD-1AD4249C</td></tr>
+          </tbody></table>
+        </section>
+        <section aria-labelledby="notification-heading">
+          <h2 id="notification-heading" data-i18n="notificationHeading">Generated admin notification preview</h2>
+          <pre lang="en">New lead request
+
+Lead ID: LEAD-1AD4249C
+Status: new
+Name: Alex Demo
+Contact: lead@example.invalid
+Service: Telegram bot
+Message: Create a small lead collection bot for a local portfolio simulator.
+Created at: 2026-09-22T10:32:42Z</pre>
+        </section>
+      </div>
+      <p class="status" data-i18n="result">Repeated confirmation checked: 2 submissions → 1 stored request. The same lead was returned.</p>
+    </main>
+    <footer>
+      <p><span data-i18n="generated">Generated</span> <time datetime="2026-09-22T10:32:42Z">2026-09-22T10:32:42Z</time> · Python / aiogram / SQLite</p>
+      <p data-i18n="disclosure">Execution report of actual output, not the Telegram interface. Stored values and notification text are shown in their original English.</p>
+      <a href="telegram-demo-result.json" data-i18n="json">View generated JSON</a>
+    </footer>
+  </div>
+  <script>
+    (() => {
+      'use strict';
+      const key = 'nikita-portfolio-language';
+      const translations = {
+        en: {
+          title: 'Telegram lead bot — execution report', description: 'Execution report of the Telegram lead bot on fictional data. No Telegram messages were sent.',
+          back: '← Back to the project', language: 'Language', label: 'DEMO PROJECT / ACTUAL BACKEND EXECUTION',
+          heading: 'Telegram lead bot → execution report',
+          intro: 'Fictional data passed through the original Python lead service and SQLite repository. This local execution sent no Telegram messages.',
+          requestHeading: 'Saved fictional request', name: 'Name', contact: 'Contact', service: 'Service', message: 'Message', statusLabel: 'Status', publicId: 'Public ID',
+          notificationHeading: 'Generated admin notification preview',
+          result: 'Repeated confirmation checked: 2 submissions → 1 stored request. The same lead was returned.',
+          generated: 'Generated', disclosure: 'Execution report of actual output, not the Telegram interface. Stored values and notification text are shown in their original English.', json: 'View generated JSON'
+        },
+        ru: {
+          title: 'Telegram-бот для заявок — отчёт запуска', description: 'Отчёт запуска Telegram-бота на вымышленных данных. Сообщения в Telegram не отправлялись.',
+          back: '← Вернуться к проекту', language: 'Язык', label: 'ДЕМОНСТРАЦИОННЫЙ ПРОЕКТ / РЕАЛЬНЫЙ ЗАПУСК ЯДРА',
+          heading: 'Telegram-бот для заявок → отчёт запуска',
+          intro: 'Вымышленные данные обработаны исходным Python-сервисом заявок и сохранены в SQLite. При этом локальном запуске сообщения в Telegram не отправлялись.',
+          requestHeading: 'Сохранённая вымышленная заявка', name: 'Имя', contact: 'Контакт', service: 'Услуга', message: 'Сообщение', statusLabel: 'Статус', publicId: 'Публичный ID',
+          notificationHeading: 'Подготовленный текст уведомления администратору',
+          result: 'Проверено повторное подтверждение: 2 отправки → 1 сохранённая заявка. Возвращена та же запись.',
+          generated: 'Создано', disclosure: 'Отчёт фактического выполнения, а не интерфейс Telegram. Значения записи и текст уведомления приведены на исходном английском языке.', json: 'Посмотреть сформированный JSON'
+        }
+      };
+      function setLanguage(value, persist) {
+        const language = value === 'ru' ? 'ru' : 'en';
+        const t = translations[language];
+        document.documentElement.lang = language;
+        document.title = t.title;
+        document.querySelector('meta[name="description"]').content = t.description;
+        document.querySelectorAll('[data-i18n]').forEach(element => { element.textContent = t[element.dataset.i18n]; });
+        document.querySelectorAll('[data-i18n-aria]').forEach(element => { element.setAttribute('aria-label', t[element.dataset.i18nAria]); });
+        document.querySelectorAll('[data-lang]').forEach(button => { button.setAttribute('aria-pressed', String(button.dataset.lang === language)); });
+        if (persist) { try { localStorage.setItem(key, language); } catch { /* Preference storage is optional. */ } }
+      }
+      let saved = 'en';
+      try { saved = localStorage.getItem(key); } catch { /* English remains the default. */ }
+      setLanguage(saved, false);
+      document.querySelectorAll('[data-lang]').forEach(button => { button.addEventListener('click', () => setLanguage(button.dataset.lang, true)); });
+      document.querySelector('.languages').hidden = false;
+    })();
+  </script>
+</body>
+</html>

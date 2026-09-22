@@ -1,0 +1,14 @@
+{
+  "demo": "Fictional local execution. No Telegram messages sent.",
+  "name": "Alex Demo",
+  "contact": "lead@example.invalid",
+  "service": "Telegram bot",
+  "message": "Create a small lead collection bot for a local portfolio simulator.",
+  "status": "new",
+  "public_id": "LEAD-1AD4249C",
+  "created_at": "2026-09-22T10:32:42Z",
+  "confirmations_attempted": 2,
+  "stored_leads_after_repeat": 1,
+  "same_lead_on_repeat": true,
+  "admin_notification_preview": "New lead request\n\nLead ID: LEAD-1AD4249C\nStatus: new\nName: Alex Demo\nContact: lead@example.invalid\nService: Telegram bot\nMessage: Create a small lead collection bot for a local portfolio simulator.\nCreated at: 2026-09-22T10:32:42Z"
+}

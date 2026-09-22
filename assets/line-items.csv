@@ -1,0 +1,10 @@
+﻿invoice_number,description,quantity,unit_price,line_total
+INV-2026-001,Duplicate check sample,1.00,99.00,99.00
+INV-2026-002,Data cleanup,3.00,80.00,240.00
+INV-2026-002,Report formatting,1.00,60.00,60.00
+INV-2026-004,Integration planning,2.00,120.00,240.00
+INV-2026-004,Validation script,1.00,110.00,110.00
+INV-2026-003,Prototype build,1.00,220.00,220.00
+INV-2026-003,Demo walkthrough,2.00,40.00,80.00
+INV-2026-001,Workflow setup,2.00,150.00,300.00
+INV-2026-001,Automation review,1.00,75.00,75.00

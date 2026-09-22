@@ -1,0 +1,6 @@
+﻿invoice_number,invoice_date,due_date,vendor_name,customer_name,currency,subtotal,tax,total,line_item_count,source_file,validation_status,warnings
+INV-2026-001,2026-08-09,2026-08-28,Northwind Demo Supplies,Contoso Example Studio,USD,99.00,7.92,106.92,1,invoice_duplicate_number.pdf,ok,
+INV-2026-002,2026-08-03,2026-08-20,Alpine Demo Services,Fabrikam Sample Retail,EUR,300.00,60.00,360.00,2,invoice_eur_valid.pdf,ok,
+INV-2026-004,2026-08-07,2026-08-25,Fabrikam Sample Retail,Northwind Demo Supplies,USD,350.00,28.00,390.00,2,invoice_mismatched_total.pdf,warning,"Subtotal plus tax is 378.00, but total is 390.00."
+INV-2026-003,2026-08-05,,Contoso Example Studio,Alpine Demo Services,USD,300.00,24.00,324.00,2,invoice_missing_due_date.pdf,warning,Missing due date.
+INV-2026-001,2026-08-01,2026-08-15,Northwind Demo Supplies,Contoso Example Studio,USD,375.00,30.00,405.00,2,invoice_usd_valid.pdf,warning,Duplicate invoice number detected: INV-2026-001

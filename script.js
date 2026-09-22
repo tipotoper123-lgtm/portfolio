@@ -1,293 +1,78 @@
-// ===================================
-// Typing Effect for Hero Section
-// ===================================
-const typingTexts = [
-    'Разработка Telegram-ботов',
-    'Парсинг данных и Web Scraping',
-    'Автоматизация процессов',
-    'CRM и Backend системы'
-];
-
-let textIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-const typingElement = document.querySelector('.typing-text');
-const typingSpeed = 100;
-const deletingSpeed = 50;
-const pauseTime = 2000;
-
-function typeText() {
-    const currentText = typingTexts[textIndex];
-    
-    if (isDeleting) {
-        typingElement.textContent = currentText.substring(0, charIndex - 1);
-        charIndex--;
-    } else {
-        typingElement.textContent = currentText.substring(0, charIndex + 1);
-        charIndex++;
-    }
-    
-    if (!isDeleting && charIndex === currentText.length) {
-        setTimeout(() => {
-            isDeleting = true;
-        }, pauseTime);
-    } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        textIndex = (textIndex + 1) % typingTexts.length;
-    }
-    
-    const speed = isDeleting ? deletingSpeed : typingSpeed;
-    setTimeout(typeText, speed);
-}
-
-// Start typing effect
-document.addEventListener('DOMContentLoaded', typeText);
-
-// ===================================
-// Smooth Scroll Navigation
-// ===================================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-            
-            // Close mobile menu if open
-            const navMenu = document.querySelector('.nav-menu');
-            if (navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-            }
-        }
-    });
-});
-
-// ===================================
-// Mobile Menu Toggle
-// ===================================
-const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-const navMenu = document.querySelector('.nav-menu');
-
-mobileMenuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    mobileMenuToggle.classList.toggle('active');
-});
-
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!e.target.closest('.nav-content')) {
-        navMenu.classList.remove('active');
-        mobileMenuToggle.classList.remove('active');
-    }
-});
-
-// ===================================
-// Scroll Animations
-// ===================================
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-// Observe all cards and sections
-document.addEventListener('DOMContentLoaded', () => {
-    const elementsToAnimate = document.querySelectorAll('.glass-card, .section-header');
-    elementsToAnimate.forEach(el => observer.observe(el));
-});
-
-// ===================================
-// Statistics Counter Animation
-// ===================================
-function animateCounter(element, target, duration = 2000) {
-    const start = 0;
-    const increment = target / (duration / 16);
-    let current = start;
-    
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            element.textContent = target;
-            clearInterval(timer);
-        } else {
-            element.textContent = Math.floor(current);
-        }
-    }, 16);
-}
-
-const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const statNumbers = entry.target.querySelectorAll('.stat-number');
-            statNumbers.forEach(stat => {
-                const target = parseInt(stat.getAttribute('data-target'));
-                animateCounter(stat, target);
-            });
-            statsObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-document.addEventListener('DOMContentLoaded', () => {
-    const statsSection = document.querySelector('.stats');
-    if (statsSection) {
-        statsObserver.observe(statsSection);
-    }
-});
-
-// ===================================
-// Scroll to Top Button
-// ===================================
-const scrollTopButton = document.querySelector('.scroll-top');
-
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 500) {
-        scrollTopButton.classList.add('visible');
-    } else {
-        scrollTopButton.classList.remove('visible');
-    }
-});
-
-scrollTopButton.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-// ===================================
-// Navigation Background on Scroll
-// ===================================
-const nav = document.querySelector('.nav');
-
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 100) {
-        nav.style.background = 'rgba(10, 14, 39, 0.95)';
-    } else {
-        nav.style.background = 'rgba(10, 14, 39, 0.8)';
-    }
-});
-
-// ===================================
-// Skill Bars Animation on Scroll
-// ===================================
-const skillsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const skillBars = entry.target.querySelectorAll('.skill-bar');
-            skillBars.forEach(bar => {
-                bar.style.animation = 'skillLoad 1.5s ease-out forwards';
-            });
-            skillsObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.3 });
-
-document.addEventListener('DOMContentLoaded', () => {
-    const skillsSection = document.querySelector('.skills');
-    if (skillsSection) {
-        skillsObserver.observe(skillsSection);
-    }
-});
-
-// ===================================
-// Project Cards Hover Effect Enhancement
-// ===================================
-document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-10px) scale(1.02)';
-    });
-    
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
-    });
-});
-
-// ===================================
-// Parallax Effect for Hero Background
-// ===================================
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const orbs = document.querySelectorAll('.gradient-orb');
-    
-    orbs.forEach((orb, index) => {
-        const speed = 0.5 + (index * 0.2);
-        orb.style.transform = `translateY(${scrolled * speed}px)`;
-    });
-});
-
-// ===================================
-// Add active state to navigation links
-// ===================================
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
-    
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-});
-
-// ===================================
-// Console Easter Egg
-// ===================================
-console.log('%c👋 Привет!', 'font-size: 24px; font-weight: bold; color: #00d4ff;');
-console.log('%cЕсли ты видишь это, значит ты тоже разработчик! 😊', 'font-size: 14px; color: #a855f7;');
-console.log('%c📩 Свяжись со мной: https://kwork.ru/user/galens', 'font-size: 12px; color: #06b6d4;');
-
-// ===================================
-// Performance: Lazy Loading Images (if any added later)
-// ===================================
-if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-    
-    document.querySelectorAll('img[data-src]').forEach(img => {
-        imageObserver.observe(img);
-    });
-}
-
-// ===================================
-// Accessibility: Focus Visible Polyfill
-// ===================================
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Tab') {
-        document.body.classList.add('keyboard-navigation');
-    }
-});
-
-document.addEventListener('mousedown', () => {
-    document.body.classList.remove('keyboard-navigation');
-});
+(() => {
+  'use strict';
+  const translations = window.PORTFOLIO_CONTENT;
+  const languageKey = 'nikita-portfolio-language';
+  const nav = document.querySelector('#site-nav');
+  const menu = document.querySelector('.menu-toggle');
+  const mobile = window.matchMedia('(max-width: 760px)');
+  let language = 'en';
+  try {
+    const saved = localStorage.getItem(languageKey);
+    if (saved === 'en' || saved === 'ru') language = saved;
+  } catch { /* Storage is optional; the page still works for this visit. */ }
+  const escapeHTML = value => String(value).replace(/[&<>"']/g, char => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[char]));
+  function setMenu(open, restoreFocus = false) {
+    nav.classList.toggle('is-open', open);
+    menu.setAttribute('aria-expanded', String(open));
+    menu.setAttribute('aria-label', translations[language][open ? 'closeMenu' : 'openMenu']);
+    if (restoreFocus) menu.focus();
+  }
+  function renderProjects() {
+    const t = translations[language];
+    document.querySelector('#project-list').innerHTML = window.PORTFOLIO_PROJECTS.map(project => {
+      const p = project[language];
+      return `<article class="project" id="project-${escapeHTML(project.id)}" aria-labelledby="title-${escapeHTML(project.id)}">
+        <figure class="project-media">${project.report ? `<pre class="report-preview" lang="${language}">${escapeHTML(project.report[language])}</pre>` : `<a class="media-link" href="${escapeHTML(project.image)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHTML(t.screenshot + ': ' + p.title)}"><img src="${escapeHTML(project.image)}" alt="${escapeHTML(p.alt)}" width="${project.width}" height="${project.height}" loading="lazy" decoding="async"></a>`}<figcaption class="media-caption">${escapeHTML(p.caption)}</figcaption></figure>
+        <div class="project-content"><p class="project-type">${escapeHTML(t[project.type])}</p><h3 id="title-${escapeHTML(project.id)}">${escapeHTML(p.title)}</h3><p class="project-summary">${escapeHTML(p.summary)}</p>
+        <dl class="project-facts">${['task', 'built', 'result'].map(key => `<div><dt>${escapeHTML(t[key])}</dt><dd>${escapeHTML(p[key])}</dd></div>`).join('')}</dl>
+        <ul class="tech-list" aria-label="${escapeHTML(t.technologies)}">${project.tech.map(tech => `<li>${escapeHTML(tech)}</li>`).join('')}</ul>
+        <div class="project-links">${(project.links || []).map(link => `<a class="text-link" href="${escapeHTML(link.url)}"${link.download ? ' download' : ' target="_blank" rel="noopener noreferrer"'}>${escapeHTML(link[language])}<span aria-hidden="true"> ↗</span></a>`).join('')}</div></div></article>`;
+    }).join('');
+  }
+  function renderContact() {
+    const t = translations[language];
+    const username = (window.PORTFOLIO_CONFIG?.telegramUsername || '').trim().replace(/^@/, '');
+    const valid = /^[a-z][a-z0-9_]{4,31}$/i.test(username);
+    const link = document.querySelector('#telegram-link');
+    document.querySelector('#contact-status').textContent = valid ? t.contactReady : t.contactPending;
+    link.hidden = !valid;
+    if (valid) { link.href = `https://t.me/${username}`; link.textContent = `${t.telegramAction} ↗`; }
+    else { link.removeAttribute('href'); link.textContent = ''; }
+  }
+  function setLanguage(next, persist = false) {
+    language = next === 'ru' ? 'ru' : 'en';
+    const t = translations[language];
+    document.documentElement.lang = language;
+    document.title = t.title;
+    document.querySelectorAll('[data-i18n]').forEach(element => { element.textContent = t[element.dataset.i18n]; });
+    document.querySelectorAll('[data-i18n-aria]').forEach(element => { element.setAttribute('aria-label', t[element.dataset.i18nAria]); });
+    document.querySelectorAll('[data-lang]').forEach(button => { button.setAttribute('aria-pressed', String(button.dataset.lang === language)); });
+    for (const [selector, content] of [
+      ['meta[name="description"]', t.description], ['meta[name="keywords"]', t.keywords], ['meta[name="author"]', t.name],
+      ['meta[property="og:title"]', t.title], ['meta[property="og:description"]', t.description], ['meta[property="og:locale"]', language === 'ru' ? 'ru_RU' : 'en_US'],
+      ['meta[name="twitter:title"]', t.title], ['meta[name="twitter:description"]', t.description]
+    ]) document.querySelector(selector).setAttribute('content', content);
+    renderProjects(); renderContact(); setMenu(false);
+    if (persist) { try { localStorage.setItem(languageKey, language); } catch { /* Optional preference storage. */ } }
+  }
+  document.querySelectorAll('[data-lang]').forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.lang, true)));
+  menu.addEventListener('click', () => {
+    const open = menu.getAttribute('aria-expanded') !== 'true';
+    setMenu(open);
+    if (open) nav.querySelector('a').focus();
+  });
+  document.addEventListener('keydown', event => { if (event.key === 'Escape' && menu.getAttribute('aria-expanded') === 'true') setMenu(false, true); });
+  document.addEventListener('click', event => { if (!event.target.closest('.site-header')) setMenu(false); });
+  document.addEventListener('focusin', event => { if (!event.target.closest('.site-header')) setMenu(false); });
+  document.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener('click', () => {
+    setMenu(false);
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) { target.setAttribute('tabindex', '-1'); target.focus({ preventScroll: true }); }
+  }));
+  mobile.addEventListener('change', () => setMenu(false));
+  setLanguage(language);
+  document.documentElement.classList.add('js');
+  document.querySelector('.language-switch').hidden = false;
+  menu.hidden = false;
+  document.querySelector('#year').textContent = new Date().getFullYear();
+})();

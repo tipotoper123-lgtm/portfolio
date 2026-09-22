@@ -1,0 +1,13 @@
+УСПЕШНО (5):
+
+  test_dev_; Descriptor3;
+  Dev_324_; Folder_1;
+  Dev_1; Folder_2;
+  TestDevice1; Test1;
+  TestDevice2; Test2;
+
+С ПРЕДУПРЕЖДЕНИЯМИ (0):
+
+
+ОШИБКИ или FATAL (0):
+

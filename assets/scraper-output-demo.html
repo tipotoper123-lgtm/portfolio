@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Python scraper execution report: fictional local test data cleaned and exported to Excel and CSV.">
+  <title>Web scraper — execution report</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #0e121b; color: #e6edf7; font: 16px/1.65 system-ui, sans-serif; }
+    .page { width: min(100% - 3rem, 1152px); margin-inline: auto; padding-block: 2rem 3rem; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; }
+    a { color: #75e5ce; text-underline-offset: 4px; }
+    a:hover { color: #c0f8ec; }
+    :focus-visible { outline: 3px solid #75e5ce; outline-offset: 4px; }
+    .back { display: inline-flex; align-items: center; min-height: 44px; font-size: 0.9rem; }
+    .languages { display: flex; gap: 4px; padding: 3px; border: 1px solid #3d4b61; border-radius: 8px; }
+    .languages button { min-width: 44px; min-height: 40px; border: 0; border-radius: 4px; padding: 0.3rem 0.55rem; background: transparent; color: #c4d2e8; font: 600 0.8rem system-ui, sans-serif; cursor: pointer; }
+    .languages button[aria-pressed="true"] { background: #29453f; color: #c9ffee; }
+    [hidden] { display: none !important; }
+    .label { color: #67dfc6; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; }
+    h1 { font-size: clamp(1.85rem, 4.3vw, 2.7rem); line-height: 1.2; letter-spacing: -0.035em; margin: 0.8rem 0; text-wrap: balance; }
+    h2 { font-size: 1.2rem; line-height: 1.4; margin-top: 2rem; }
+    .intro { color: #b6c4d8; max-width: 870px; }
+    .metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin: 1.75rem 0; }
+    .metrics div { min-width: 0; background: #182130; border: 1px solid #2a374b; border-radius: 12px; padding: 1rem 1.2rem; font-size: 0.85rem; color: #b6c4d8; }
+    .metrics strong { display: block; color: #67dfc6; font-size: 1.85rem; }
+    .table-scroll { overflow-x: auto; border: 1px solid #3c4d66; border-radius: 8px; }
+    table { width: 100%; min-width: 650px; border-collapse: collapse; font-size: 0.88rem; }
+    th, td { padding: 0.8rem 1rem; text-align: left; border: 1px solid #2a374b; }
+    th { background: #1b2637; font-weight: 600; }
+    td { background: #131b28; }
+    .note { color: #b6c4d8; font-size: 0.85rem; }
+    .links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; }
+    .links a { display: inline-flex; align-items: center; min-height: 44px; }
+    footer { color: #aebbd0; font-size: 0.8rem; margin-top: 1.5rem; }
+    footer p { margin: 0.5rem 0; }
+    @media (max-width: 850px) { .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); } .topbar { margin-bottom: 1.75rem; } }
+    @media (max-width: 440px) { .page { width: calc(100% - 2rem); padding-top: 1rem; } .metrics { gap: 0.65rem; } .metrics div { padding: 0.8rem; } }
+    @media (forced-colors: active) { .languages button[aria-pressed="true"] { border: 1px solid ButtonText; } }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a class="back" href="../index.html#project-scraper-excel" data-i18n="back">← Back to the project</a>
+      <div class="languages" role="group" aria-label="Language" data-i18n-aria="language" hidden><button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="true">EN</button><button type="button" data-lang="ru" lang="ru" aria-label="Русский" aria-pressed="false">RU</button></div>
+    </header>
+    <main>
+      <p class="label" data-i18n="label">DEMO PROJECT / REAL FIXTURE RUN</p>
+      <h1 data-i18n="heading">Web data → Excel & CSV</h1>
+      <p class="intro" data-i18n="intro">Execution report from the Python scraper. These are fictional records from its local HTML fixture, processed by the original scraper code.</p>
+      <div class="metrics">
+        <div><strong>6</strong><span data-i18n="parsed">records parsed</span></div>
+        <div><strong>2</strong><span data-i18n="duplicates">duplicates removed</span></div>
+        <div><strong>1</strong><span data-i18n="invalid">invalid record skipped</span></div>
+        <div><strong>3</strong><span data-i18n="exported">clean records exported</span></div>
+      </div>
+      <h2 id="output-heading" data-i18n="output">Actual CSV output — selected columns</h2>
+      <p class="note" id="table-help" data-i18n="tableHelp">On a narrow screen, scroll the table horizontally. Keyboard: focus the table and use the arrow keys.</p>
+      <div class="table-scroll" role="region" aria-labelledby="output-heading" aria-describedby="table-help" tabindex="0">
+        <table>
+          <thead><tr><th scope="col" data-i18n="titleColumn">Title</th><th scope="col" data-i18n="price">Price</th><th scope="col" data-i18n="availability">Availability</th><th scope="col" data-i18n="rating">Rating</th><th scope="col" data-i18n="category">Category</th></tr></thead>
+          <tbody lang="en">
+            <tr><td>The Clean Code Field Guide</td><td>12.5</td><td>In stock</td><td>3</td><td>Software</td></tr>
+            <tr><td>Spreadsheet Patterns</td><td>8.0</td><td>In stock</td><td>5</td><td>Data</td></tr>
+            <tr><td>No Price Notebook</td><td><span data-i18n="missing" data-localized-value>Empty field</span></td><td>Limited availability</td><td>1</td><td>Notes</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note" data-i18n="note">Missing fields remain visible. Prices, ratings, spacing and URLs are normalized; duplicate product URLs are removed. Original output values remain in English; the empty price field is labelled for readability.</p>
+      <p class="links"><a href="books.xlsx" download data-i18n="excel">Download generated Excel</a><a href="books.csv" download data-i18n="csv">Download generated CSV</a></p>
+    </main>
+    <footer>
+      <p><span data-i18n="generated">Generated</span> <time datetime="2026-09-22T10:31:25Z">2026-09-22T10:31:25Z</time> · <span data-i18n="mode">Offline fixture mode</span> · Python / Beautiful Soup / pandas / openpyxl</p>
+      <p data-i18n="disclosure">Execution report of actual output, not an original application interface.</p>
+    </footer>
+  </div>
+  <script>
+    (() => {
+      'use strict';
+      const key = 'nikita-portfolio-language';
+      const translations = {
+        en: {
+          title: 'Web scraper — execution report', description: 'Python scraper execution report: fictional local test data cleaned and exported to Excel and CSV.',
+          back: '← Back to the project', language: 'Language', label: 'DEMO PROJECT / REAL FIXTURE RUN', heading: 'Web data → Excel & CSV',
+          intro: 'Execution report from the Python scraper. These are fictional records from its local HTML fixture, processed by the original scraper code.',
+          parsed: 'records parsed', duplicates: 'duplicates removed', invalid: 'invalid record skipped', exported: 'clean records exported',
+          output: 'Actual CSV output — selected columns', tableHelp: 'On a narrow screen, scroll the table horizontally. Keyboard: focus the table and use the arrow keys.',
+          titleColumn: 'Title', price: 'Price', availability: 'Availability', rating: 'Rating', category: 'Category', missing: 'Empty field',
+          note: 'Missing fields remain visible. Prices, ratings, spacing and URLs are normalized; duplicate product URLs are removed. Original output values remain in English; the empty price field is labelled for readability.',
+          excel: 'Download generated Excel', csv: 'Download generated CSV', generated: 'Generated', mode: 'Offline fixture mode',
+          disclosure: 'Execution report of actual output, not an original application interface.'
+        },
+        ru: {
+          title: 'Парсер данных — отчёт запуска', description: 'Отчёт запуска Python-парсера: вымышленные локальные тестовые данные очищены и выгружены в Excel и CSV.',
+          back: '← Вернуться к проекту', language: 'Язык', label: 'ДЕМОНСТРАЦИОННЫЙ ПРОЕКТ / РЕАЛЬНЫЙ ТЕСТОВЫЙ ЗАПУСК', heading: 'Данные со страницы → Excel и CSV',
+          intro: 'Отчёт запуска Python-парсера. Вымышленные записи из локального тестового HTML обработаны исходным кодом парсера.',
+          parsed: 'записей разобрано', duplicates: 'дубликата удалено', invalid: 'некорректная запись пропущена', exported: 'очищенные записи выгружены',
+          output: 'Фактический CSV — выбранные столбцы', tableHelp: 'На узком экране прокручивайте таблицу по горизонтали. С клавиатуры: перейдите к таблице клавишей Tab и используйте стрелки.',
+          titleColumn: 'Название', price: 'Цена', availability: 'Наличие', rating: 'Рейтинг', category: 'Категория', missing: 'Пустое поле',
+          note: 'Пропуски остаются видимыми. Цены, рейтинги, пробелы и URL нормализованы; записи с одинаковыми URL товаров удалены. Исходные значения оставлены на английском языке; пустая цена обозначена текстом для наглядности.',
+          excel: 'Скачать сформированный Excel', csv: 'Скачать сформированный CSV', generated: 'Создано', mode: 'Локальные тестовые данные',
+          disclosure: 'Отчёт фактического выполнения, а не исходный интерфейс приложения.'
+        }
+      };
+      function setLanguage(value, persist) {
+        const language = value === 'ru' ? 'ru' : 'en';
+        const t = translations[language];
+        document.documentElement.lang = language;
+        document.title = t.title;
+        document.querySelector('meta[name="description"]').content = t.description;
+        document.querySelectorAll('[data-i18n]').forEach(element => { element.textContent = t[element.dataset.i18n]; });
+        document.querySelectorAll('[data-i18n-aria]').forEach(element => { element.setAttribute('aria-label', t[element.dataset.i18nAria]); });
+        document.querySelectorAll('[data-localized-value]').forEach(element => { element.lang = language; });
+        document.querySelectorAll('[data-lang]').forEach(button => { button.setAttribute('aria-pressed', String(button.dataset.lang === language)); });
+        if (persist) { try { localStorage.setItem(key, language); } catch { /* Preference storage is optional. */ } }
+      }
+      let saved = 'en';
+      try { saved = localStorage.getItem(key); } catch { /* English remains the default. */ }
+      setLanguage(saved, false);
+      document.querySelectorAll('[data-lang]').forEach(button => { button.addEventListener('click', () => setLanguage(button.dataset.lang, true)); });
+      document.querySelector('.languages').hidden = false;
+    })();
+  </script>
+</body>
+</html>

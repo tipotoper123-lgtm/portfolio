@@ -1,25 +1,44 @@
-# Portfolio Website - Georgy Galens
+# Nikita — Bots, APIs & Automation
 
-Modern, single-page portfolio website for Georgy Galens, a Python Developer & Automation Specialist.
-Built with HTML5, CSS3, and JavaScript featuring a dark theme, glassmorphism design, and smooth animations.
+Портфолио Никиты Александровича. Статический сайт на HTML, CSS и JavaScript: услуги, подтверждённые проекты, порядок работы и контакты.
 
-## 🚀 Live Demo
-[Link to your live site will go here]
+- EN по умолчанию; RU переключается в шапке. Выбор сохраняется в `localStorage` (ключ `nikita-portfolio-language`). При недоступном хранилище переключение работает в пределах визита.
+- Переводятся тексты, подписи, альтернативные описания, навигация, `title`, description, keywords, author, Open Graph и Twitter metadata. Обновляется `html lang`.
+- Тёмная тема, адаптивное меню, skip-link, управление клавиатурой, видимый фокус и `prefers-reduced-motion`.
+- Нет рейтингов, процентов навыков, неподтверждённых коммерческих результатов, формы отправки или аналитики.
 
-## 🛠 Features
-- **Modern Design**: Dark aesthetic with neon accents and glassmorphism cards.
-- **Interactive**: Typing effects, scroll animations, and dynamic counters.
-- **Responsive**: Fully optimized for mobile and desktop devices.
-- **Tech Stack**: Vanilla HTML/CSS/JS (Lightweight & Fast).
+## Локальный запуск
 
-## 📂 Sections
-1.  **About**: Professional bio and specialization.
-2.  **Skills**: Visual representation of technical expertise.
-3.  **Projects**: Showcase of key works (CRM, Bots, Automation).
-4.  **Contact**: Direct links to Kwork profile.
+Из папки репозитория:
 
-## 🔧 Setup
-Simply open `index.html` in any modern browser. No build process required.
+```sh
+python -m http.server 8765 --bind 127.0.0.1
+```
 
-## 📝 Author
-**Georgy Galens** - [Kwork Profile](https://kwork.ru/user/galens)
+Откройте http://127.0.0.1:8765/ . Сборка и npm-зависимости не нужны. Для каталога проектов и перевода требуется JavaScript.
+
+## Настройка контакта
+
+Единственное место настройки — `config.js`, поле `telegramUsername`. Сейчас оно пустое: сайт честно сообщает, что контакт ещё не добавлен, и не показывает активную кнопку.
+
+Вставьте только подтверждённый рабочий username без `@`. Не помещайте сюда токены бота, API-ключи или другие секреты. Проверка формата не подтверждает принадлежность аккаунта.
+
+## Содержимое
+
+- `index.html` — структура и английский текст по умолчанию.
+- `content.js` — переводы интерфейса EN/RU.
+- `projects.js` — двуязычные кейсы и ссылки на проверенные материалы.
+- `script.js` — язык, metadata, меню, каталог и контакт.
+- `style.css` — оформление и адаптивность.
+- `assets/` — только копии безопасных демонстрационных материалов.
+- `PROJECTS.md` — происхождение опубликованных здесь примеров и ограничения.
+
+Первые три кейса — демонстрационные: бот заявок, парсер с Excel/CSV, извлечение счетов из PDF. Затем показаны демонстрация разбора инцидентов и сохранённый отчёт сборки Keil. Это не заявления о коммерческих заказах. Публичные репозитории/работающие hosted demos этих проектов не подтверждены, поэтому ссылки на них не выдуманы.
+
+Исходные проекты не редактировались. Скриншоты не генерировались: для бота/парсера показаны явно подписанные отчёты фактического запуска, для PDF/инцидентов — реальные экраны Streamlit. Исходные поля и надписи на изображениях/в выгрузках сохраняются как доказательства; подписи переведены.
+
+## Публикация
+
+Существующий адрес: https://tipotoper123-lgtm.github.io/portfolio/
+
+Локальные изменения сами по себе не обновляют GitHub Pages. Порядок публикации — в `DEPLOYMENT.md`. Статические preview-боты соцсетей обычно читают английские metadata исходного HTML; при переключении языка в браузере metadata переводятся.
